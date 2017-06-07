@@ -30,14 +30,20 @@ public class NewStudentUI extends UI{
 	
 	@Override
 	protected void init(VaadinRequest request) {
-		final TextField studentNameField = new TextField("Felhasználónév: ");
+		
+		final TextField studentNameField = new TextField("Név: ");
+		final TextField studentUserNameField = new TextField("Felhasználónév: ");
 		final PasswordField passwordField = new PasswordField("Jelszó:");
 		final TextField programmeField = new TextField("Szak:");
 		final TextField birthyearField = new TextField("SzületésiÉV");
 		Button saveButton = new Button("Mentés");
 
+
 		studentNameField.setWidth("200px");
 		studentNameField.setIcon(FontAwesome.USER);
+		
+		studentUserNameField.setWidth("200px");
+		studentUserNameField.setIcon(FontAwesome.USER);
 
 		passwordField.setWidth("200px");
 		passwordField.setIcon(FontAwesome.KEY);
@@ -54,7 +60,7 @@ public class NewStudentUI extends UI{
 
 		VerticalLayout saveLayout = new VerticalLayout();
 		saveLayout.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
-		saveLayout.addComponents(title,studentNameField, passwordField,programmeField,birthyearField, saveButton);
+		saveLayout.addComponents(title,studentNameField,studentUserNameField, passwordField,programmeField,birthyearField, saveButton);
 
 		saveButton.addClickListener(new ClickListener() {
 
@@ -62,7 +68,7 @@ public class NewStudentUI extends UI{
 			public void buttonClick(ClickEvent event) {
 
 				try {
-					diakDaoImpl.save(new Student(studentNameField.getValue(),passwordField.getValue(),
+					diakDaoImpl.save(new Student(studentNameField.getValue(),studentUserNameField.getValue(),passwordField.getValue(),
 							programmeField.getValue(),Integer.parseInt(birthyearField.getValue())));
 					System.out.println("Sikeres mentés!");
 				} catch (Exception e) {

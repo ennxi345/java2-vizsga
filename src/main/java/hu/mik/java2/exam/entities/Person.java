@@ -15,18 +15,22 @@ public class Person {
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+
+	@Column(name = "username")
+	private String username;
 	
 	@Column(name = "name")
 	private String name;
-
+	
 	@Column(name = "password")
 	private String password;
 	
 	public Person(){
 	}
 
-	public Person(String name, String password) {
+	public Person(String name,String username, String password) {
 		this.name = name;
+		this.username = username;
 		this.password = password;
 	}
 
@@ -37,6 +41,10 @@ public class Person {
 	public String getName() {
 		return name;
 	}
+	
+	public String getUsername() {
+		return username;
+	}
 
 	public String getPassword() {
 		return password;
@@ -46,5 +54,6 @@ public class Person {
 		this.password = password;
 	}
 		
+	
 	
 }

@@ -26,7 +26,8 @@ public class NewTeacherUI extends UI {
 	
 	@Override
 	protected void init(VaadinRequest request) {
-		final TextField teacherNameField = new TextField("Felhasználónév: ");
+		final TextField teacherNameField = new TextField("Név: ");
+		final TextField teacherUserNameField = new TextField("Felhasználónév: ");
 		final PasswordField passwordField = new PasswordField("Jelszó:");
 		final TextField programmeField = new TextField("Tanszék:");
 		final TextField birthyearField = new TextField("SzületésiÉV");
@@ -50,7 +51,7 @@ public class NewTeacherUI extends UI {
 
 		VerticalLayout saveLayout = new VerticalLayout();
 		saveLayout.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
-		saveLayout.addComponents(title,teacherNameField, passwordField,programmeField,birthyearField, saveButton);
+		saveLayout.addComponents(title,teacherNameField,teacherUserNameField, passwordField,programmeField,birthyearField, saveButton);
 
 	saveButton.addClickListener(new ClickListener() {
 
@@ -58,7 +59,7 @@ public class NewTeacherUI extends UI {
 		public void buttonClick(ClickEvent event) {
 
 			try {
-				diakDaoImpl.save(new Student(teacherNameField.getValue(),passwordField.getValue(),
+				diakDaoImpl.save(new Student(teacherNameField.getValue(),teacherUserNameField.getValue(),passwordField.getValue(),
 						programmeField.getValue(),Integer.parseInt(birthyearField.getValue())));
 			} catch (Exception e) {
 				System.out.println("Sikertelen mentés");

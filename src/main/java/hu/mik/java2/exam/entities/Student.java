@@ -12,7 +12,6 @@ import javax.persistence.Table;
 @Table(name = "diak")
 public class Student extends Person{
 
-	
 	@Column(name = "szak")
 	private String szak;
 	
@@ -30,8 +29,8 @@ public class Student extends Person{
 		super();
 	}
 
-	public Student(String name ,String password,String szak,Integer szulev) {
-		super(name,password);
+	public Student(String name ,String username, String password,String szak,Integer szulev) {
+		super(name,username,password);
 		this.szak = szak;
 		this.szulev=szulev;
 	}

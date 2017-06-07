@@ -143,11 +143,9 @@ public class UserLoginLayout extends VerticalLayout {
 		setComponentAlignment(loginLayout, Alignment.MIDDLE_CENTER);
 	}
 	
-	
-	
 	@PostConstruct
 	public void alma(){
-	   adminDaoImpl.save(new Admin("admin","admin"));
+	   adminDaoImpl.save(new Admin("Ádám","admin2","admin"));
 	}
 	//a postconstruct a konstruktor után fut le
 }

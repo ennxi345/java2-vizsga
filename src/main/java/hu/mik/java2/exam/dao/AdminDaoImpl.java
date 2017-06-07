@@ -39,13 +39,13 @@ public class AdminDaoImpl implements AdminDao {
 	// egyedi
 	// lesz!
 	@Override
-	public Admin chkAdminByName(String name, String password) {
+	public Admin chkAdminByName(String username, String password) {
 		return this.entityManager
-				.createQuery("SELECT a FROM Admin a WHERE a.name LIKE :name AND a.password = :password", Admin.class)
+				.createQuery("SELECT a FROM Admin a WHERE a.username LIKE :username AND a.password = :password", Admin.class)
 				// belépéskor név és jelszó párossal ellenőrizz, ne csak névvel
 				// nem tudom, hogy ez a metódus csak a loginnál érdekes-e
 				// igen szerintem elég csak ott
-				.setParameter("name", name).setParameter("password", password).getSingleResult();
+				.setParameter("username", username).setParameter("password", password).getSingleResult();
 
 	}
 
