@@ -1,5 +1,7 @@
 package hu.mik.java2.exam.vaadin;
 
+import javax.activation.CommandInfo;
+
 import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
@@ -72,7 +74,17 @@ public class AdminUI extends UI {
 		student.addItem("Diák(ok) módosítása", null);
 		
 		course.addItem("Kurzus lista", null);
-		course.addItem("Kurzus felvétele", null);
+		course.addItem("Kurzus felvétele", new Command() {
+
+			@Override
+			public void menuSelected(MenuItem selectedItem) {
+			
+				Page.getCurrent().setLocation("/newCourse");
+			}
+			});
+			
+			
+		
 		course.addItem("Kurzus módosítása", null);
 		
 		

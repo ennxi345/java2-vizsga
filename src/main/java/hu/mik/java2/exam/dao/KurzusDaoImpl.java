@@ -29,20 +29,20 @@ public class KurzusDaoImpl implements KurzusDao {
 
 	@Override
 	public Course save(Course course) {
-		// TODO Auto-generated method stub
-		return null;
+		if(course.getId() == null) {
+			this.entitymanager.persist(course);
+			
+			return course;
+		} else {
+			return this.entitymanager.merge(course);
+		}
 	}
 
 	@Override
 	public void delete(Course course) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public Course chkByCourse(String name, String password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

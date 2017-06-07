@@ -20,18 +20,30 @@ public class Course {
 	private String name;
 	
 	@Column(name = "kredit")
-	private String kredit;
+	private Integer kredit;
 	
 	public Course() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Course(String name, String kredit) {
+	public Course(String name, Integer kredit) {
 		super();
 		this.name = name;
 		this.kredit = kredit;
 	}
 
+	public Integer getId(){
+		return id;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public Integer getKredit(){
+		return kredit;
+	}
+	
 	@Override
 	public String toString() {
 		return "Kurzus [name=" + name + ", kredit=" + kredit + "]";
