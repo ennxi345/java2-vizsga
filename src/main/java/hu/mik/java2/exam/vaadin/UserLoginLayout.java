@@ -145,7 +145,8 @@ public class UserLoginLayout extends VerticalLayout {
 	
 	@PostConstruct
 	public void alma(){
-	   adminDaoImpl.save(new Admin("Ádám","admin2","admin"));
+	   
+	   adminDaoImpl.save(new Admin("Ádám","admin6","admin"));
 	}
 	//a postconstruct a konstruktor után fut le
 }

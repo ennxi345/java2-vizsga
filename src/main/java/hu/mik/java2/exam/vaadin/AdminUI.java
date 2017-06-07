@@ -32,7 +32,7 @@ public class AdminUI extends UI {
 			
 			@Override
 			public void menuSelected(MenuItem selectedItem) {
-				Page.getCurrent().setLocation("/newteacher");	
+				Page.getCurrent().setLocation("/teacherlist");	
 			}
 		});
 		teacher.addItem("Tanár felvétel", new Command(){

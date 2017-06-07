@@ -51,13 +51,13 @@ public class DiakDaoImpl implements DiakDao{
 	}
 	
 	@Override
-	public Student chkByStudent(String name, String password) {
+	public Student chkByStudent(String username, String password) {
 		return this.entitymanager
-				.createQuery("SELECT d FROM diak d WHERE d.name LIKE :name AND d.password = :password", Student.class)
+				.createQuery("SELECT d FROM diak d WHERE d.username LIKE :username AND d.password = :password", Student.class)
 				// belépéskor név és jelszó párossal ellenőrizz, ne csak névvel
 				// nem tudom, hogy ez a metódus csak a loginnál érdekes-e
 				// igen szerintem elég csak ott
-				.setParameter("name", name).setParameter("password", password).getSingleResult();
+				.setParameter("username", username).setParameter("password", password).getSingleResult();
 
 	}
 

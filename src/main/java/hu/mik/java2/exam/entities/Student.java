@@ -15,10 +15,6 @@ public class Student extends Person{
 	@Column(name = "szak")
 	private String szak;
 	
-	@Column(name = "tanar")
-	private String tanar;
-	
-	
 	@Column(name = "kredit")
 	private Integer kredit;
 	
@@ -38,10 +34,11 @@ public class Student extends Person{
 	public String getSzak() {
 		return szak;
 	}
-
-	public String getTanar() {
-		return tanar;
+	
+	public Integer getSzulev() {
+		return szulev;
 	}
+	
 	
 	public Integer getKredit() {
 		return kredit;

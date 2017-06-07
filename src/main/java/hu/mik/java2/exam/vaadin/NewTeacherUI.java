@@ -16,13 +16,15 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 
 import hu.mik.java2.exam.dao.DiakDaoImpl;
+import hu.mik.java2.exam.dao.TeacherDaoImpl;
 import hu.mik.java2.exam.entities.Student;
+import hu.mik.java2.exam.entities.Teacher;
 
 @SpringUI(path = "/newteacher")
 public class NewTeacherUI extends UI {
 
 	@Autowired
-	private DiakDaoImpl diakDaoImpl;
+	private TeacherDaoImpl teacherDaoImpl;
 	
 	@Override
 	protected void init(VaadinRequest request) {
@@ -59,8 +61,8 @@ public class NewTeacherUI extends UI {
 		public void buttonClick(ClickEvent event) {
 
 			try {
-				diakDaoImpl.save(new Student(teacherNameField.getValue(),teacherUserNameField.getValue(),passwordField.getValue(),
-						programmeField.getValue(),Integer.parseInt(birthyearField.getValue())));
+				teacherDaoImpl.save(new Teacher(teacherNameField.getValue(),teacherUserNameField.getValue(),passwordField.getValue(),
+						programmeField.getValue()));
 			} catch (Exception e) {
 				System.out.println("Sikertelen mentés");
 			}

@@ -17,9 +17,9 @@ public class Teacher extends Person{
 		super(name,username, password);
 		this.tanszek = tanszek;
 	}
-	
-	
-	
-	
+
+	public String getTanszek() {
+		return tanszek;
+	}
 
 }

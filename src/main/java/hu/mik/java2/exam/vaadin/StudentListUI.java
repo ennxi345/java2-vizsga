@@ -31,6 +31,9 @@ public class StudentListUI extends UI{
 			List<Student> studentlist = diakDaoImpl.findAll();
 			grid.setItems(studentlist);
 			grid.addColumn(Student::getName).setCaption("Name");
+			grid.addColumn(Student::getUsername).setCaption("Username");
+			grid.addColumn(Student::getSzak).setCaption("Programme");
+			grid.addColumn(Student::getSzulev).setCaption("Birth Date");
 			studentListLayout.addComponent(grid);
 			setContent(studentListLayout);
 		}
