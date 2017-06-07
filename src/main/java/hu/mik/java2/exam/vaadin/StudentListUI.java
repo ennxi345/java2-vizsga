@@ -1,6 +1,7 @@
 package hu.mik.java2.exam.vaadin;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -32,10 +33,11 @@ public class StudentListUI extends UI{
 	
 	@Autowired
 	private DiakDaoImpl diakDaoImpl;
-	//
 	
 	private Grid<Student> grid = new Grid<>();
 	private Set<Student> setstudentlist;
+	private Iterator<Student> iteratorStudentList;
+	private Student student = null;
 
 	@Override
 	protected void init(VaadinRequest request) {
@@ -53,15 +55,6 @@ public class StudentListUI extends UI{
 			
 			grid.setSelectionMode(SelectionMode.MULTI);
 			
-			grid.addSelectionListener(new SelectionListener() {
-
-				@Override
-				public void selectionChange(SelectionEvent event) {
-					setstudentlist = grid.getSelectedItems();
-				}
-				});
-			
-			
 			Button modifyButton = new Button("Módosít");
 			Button deleteButton = new Button("Törlés");
 			
@@ -73,11 +66,11 @@ public class StudentListUI extends UI{
 				public void buttonClick(ClickEvent event) {
 
 					try {
-						modifyButton.setEnabled(false);
-						deleteButton.setEnabled(false);
+						rebootgrid();
+						
 						
 						Window subWindow = new Window("Update");
-						subWindow.setHeight("500px");
+						subWindow.setHeight("700px");
 						subWindow.setWidth("800px");
 						subWindow.addCloseListener(new Window.CloseListener() {
 							
@@ -85,43 +78,49 @@ public class StudentListUI extends UI{
 							public void windowClose(com.vaadin.ui.Window.CloseEvent e) {
 								modifyButton.setEnabled(true);
 								deleteButton.setEnabled(true);	
+						
+								setstudentlist=null;
+								iteratorStudentList=null;
+								
 							}
 						});
 						
 				        VerticalLayout subContent = new VerticalLayout();
 				        subWindow.setContent(subContent);
-
-				        //
-				        String valami = "";
-				        // Put some components in it
-				        subContent.addComponents(
-				        new Label(""),
-				        new TextField("Név: "),
-						new TextField("Felhasználónév: "),
-						new PasswordField("Jelszó:"),
-						new TextField("Szak:"),
-						new TextField("SzületésiÉV"));
+				        
+				        student = iteratorStudentList.next();
+				        Label namelbl = new Label(student.getName());
 				        Button btnModify = new Button("Módosítás");
 				        Button btnNextPerson = new Button("Következő");
-				        subContent.addComponent(btnModify);
-				  
+				        subContent.addComponents(namelbl,
+						        new TextField("Név: "),
+								new TextField("Felhasználónév: "),
+								new PasswordField("Jelszó:"),
+								new TextField("Szak:"),
+								new TextField("SzületésiÉV"),btnModify,btnNextPerson);
+				 
 				        btnModify.addClickListener(new ClickListener() {
 							
 							@Override
 							public void buttonClick(ClickEvent event) {
-								
-								
+								if(student !=null){
+									System.out.println("frissit");
+									diakDaoImpl.Update(student);
+								}
 							}});
 				        
 				        btnNextPerson.addClickListener(new ClickListener() {
 							
 							@Override
-							public void buttonClick(ClickEvent event) {
-								Student student = setstudentlist.stream().findFirst().get();
-								
-								if(student != null){
-									//set, de ehhez kellenének setter metódusok is
+							public void buttonClick(ClickEvent event) {  		
+								if(!setstudentlist.isEmpty()){
+									if(iteratorStudentList.hasNext()){
+										student = iteratorStudentList.next();
+										namelbl.setValue(student.getName());
+									}
+									
 								}
+								
 							}
 						});
 				        
@@ -131,6 +130,8 @@ public class StudentListUI extends UI{
 				        subWindow.center();
 				        addWindow(subWindow);
 				        setFocusedComponent(subWindow);
+				        modifyButton.setEnabled(false);
+						deleteButton.setEnabled(false);
 					} catch (Exception e) {
 						System.out.println("Sikertelen módosítás");
 					}
@@ -143,6 +144,7 @@ public class StudentListUI extends UI{
 				public void buttonClick(ClickEvent event) {
 
 					try {	
+						rebootgrid();
 						diakDaoImpl.delete(setstudentlist);
 					} catch (Exception e) {
 						System.out.println("Sikertelen törlés");
@@ -156,6 +158,15 @@ public class StudentListUI extends UI{
 		catch(Exception e){
 			System.out.println(e);
 		}
+		
+	}
+
+	protected void rebootgrid() {
+		setstudentlist=null;
+		iteratorStudentList=null;
+		
+		setstudentlist = grid.getSelectedItems();
+		iteratorStudentList = setstudentlist.iterator();
 		
 	}
 

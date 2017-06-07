@@ -64,8 +64,9 @@ public class DiakDaoImpl implements DiakDao{
 	public void Update(Student student) {
 		 entitymanager.createQuery(
 			      "UPDATE Student s SET s.name = :name, s.username = :username, s.password = :password, s.szak = :szak " +
-			      "WHERE s.id = :id").setParameter("id", student.getId()).setParameter("name", student.getName()).setParameter("username", student.getUsername()).
-		 setParameter("password", student.getPassword()).setParameter("szak", student.getSzak()).executeUpdate();
+			      "WHERE s.id = :id").setParameter("id", student.getId()).setParameter("name", student.getName()).
+		 setParameter("username", student.getUsername()).setParameter("password", student.getPassword())
+		 .setParameter("szak", student.getSzak()).executeUpdate();
 	}
 
 }
