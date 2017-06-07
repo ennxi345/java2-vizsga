@@ -63,6 +63,8 @@ public class NewTeacherUI extends UI {
 			try {
 				teacherDaoImpl.save(new Teacher(teacherNameField.getValue(),teacherUserNameField.getValue(),passwordField.getValue(),
 						programmeField.getValue()));
+				
+				
 			} catch (Exception e) {
 				System.out.println("Sikertelen mentés");
 			}

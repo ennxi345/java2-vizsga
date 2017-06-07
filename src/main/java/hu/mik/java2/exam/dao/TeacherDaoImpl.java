@@ -19,20 +19,18 @@ public class TeacherDaoImpl implements TeacherDao {
 
 	@PersistenceContext
 	private EntityManager entitymanager;
-	
+
 	@Override
 	public List<Teacher> findAll() {
-		return this.entitymanager
-			.createQuery("SELECT t FROM Teacher t" , Teacher.class)
-			.getResultList();
-				
+		return this.entitymanager.createQuery("SELECT t FROM Teacher t", Teacher.class).getResultList();
+
 	}
 
 	@Override
 	public Teacher save(Teacher teacher) {
-		if(teacher.getId() == null) {
+		if (teacher.getId() == null) {
 			this.entitymanager.persist(teacher);
-			
+
 			return teacher;
 		} else {
 			return this.entitymanager.merge(teacher);
@@ -42,10 +40,7 @@ public class TeacherDaoImpl implements TeacherDao {
 	@Override
 	public void delete(Teacher teacher) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	
-	
-	
 }

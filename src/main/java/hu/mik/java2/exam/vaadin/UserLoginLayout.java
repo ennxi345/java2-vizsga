@@ -75,25 +75,7 @@ public class UserLoginLayout extends VerticalLayout {
 			@Override
 			public void buttonClick(ClickEvent event) {
 
-				// na szóval itt akarom leellenörizni hogy megeggyezik-e a
-				// felhasználónév az admin táblában és ha igen akkor navigáljon
-				// át Admin felületre ami az admin view csak gey probléma van
-				// hogy csak Ui ban engedi a AdminDaiImpl metódusát meghívni
-				/*
-				 * if(admindaoimpl.chkAdminbyname(studentNameField.getValue())
-				 * != null){ System.out.println("Létezik"); }else{
-				 * 
-				 * System.out.println("Nem Létezik"); }
-				 */
-
-				// jajj
-				// ne csinálj ilyen kevert nevű dolgot
-				// vagy az egész kód legyen angol, vagy az egész magyar
-				// refactor megoldja egyszerűen
-
-				// azért nem érted el, mert anonymus inner class-on belül nem
-				// volt adminDaoImpl field. ilyenkor a "külső" osztály neve.this
-				// kell, hogy elérd
+				
 
 				try {
 					
@@ -115,7 +97,7 @@ public class UserLoginLayout extends VerticalLayout {
 						setDefault();
 						}
 					
-					//teszt jelleggel, ide rendesen be kell kötni a spring security-t, hogy ne engedjen átmenni a MainUI-ra, ha nincs belépve
+					
 					
 					System.out.println(rdbUsers.getSelectedItem().get());
 					
@@ -135,10 +117,8 @@ public class UserLoginLayout extends VerticalLayout {
 				
 			}
 		});
-		// nem szereted a this-t :(
-		// de igen csak kapkofdok mártt 
-		// ez nem jó megközelités. inkább legyen nem kész, mint ronda ok
-		// no mindegy, nézzük meg, hogy mi történik
+		
+		
 		addComponents(horizonLayout, loginLayout);
 		setComponentAlignment(loginLayout, Alignment.MIDDLE_CENTER);
 	}
@@ -146,7 +126,7 @@ public class UserLoginLayout extends VerticalLayout {
 	@PostConstruct
 	public void alma(){
 	   
-	  // adminDaoImpl.save(new Admin("Ádám","admin8","admin"));
+	   adminDaoImpl.save(new Admin("adam","admin","admin"));
 	}
 	//a postconstruct a konstruktor után fut le
 }

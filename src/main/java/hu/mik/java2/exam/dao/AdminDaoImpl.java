@@ -15,7 +15,7 @@ public class AdminDaoImpl implements AdminDao {
 
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	@Override
 	public Admin save(Admin admin) {
 		if (admin.getId() == null) {
@@ -27,21 +27,11 @@ public class AdminDaoImpl implements AdminDao {
 		}
 	}
 
-	// elnevezésekre figyelj oda, mert nagyon hamar olvashatatlan lesz a kód.
-	// használj camelcase megoldást
-	// ezen kivül mindig mindenre használj automatikus formázást (ctrl+shift+f)
-
-	// névre
-	// szűrés
-	// nem
-	// garantált,
-	// hogy
-	// egyedi
-	// lesz!
 	@Override
 	public Admin chkAdminByName(String username, String password) {
 		return this.entityManager
-				.createQuery("SELECT a FROM Admin a WHERE a.username LIKE :username AND a.password = :password", Admin.class)
+				.createQuery("SELECT a FROM Admin a WHERE a.username LIKE :username AND a.password = :password",
+						Admin.class)
 				// belépéskor név és jelszó párossal ellenőrizz, ne csak névvel
 				// nem tudom, hogy ez a metódus csak a loginnál érdekes-e
 				// igen szerintem elég csak ott
