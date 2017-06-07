@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Wed Jun 07 12:17:37 CEST 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015c-820f-42c7-00000dbff9d8 
+Wed Jun 07 14:49:34 CEST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015c-829a-61c5-0000104d4b88 
 on database directory D:\6.félév\Java2\vizsga\diakDB with class loader sun.misc.Launcher$AppClassLoader@764c12b6 
 Loaded from file:/C:/Users/ennxi345/.m2/repository/org/apache/derby/derby/10.13.1.1/derby-10.13.1.1.jar
 java.vendor=Oracle Corporation

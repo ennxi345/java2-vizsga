@@ -13,6 +13,10 @@ public class Teacher extends Person{
 	
 	private String tanszek;
 
+	public Teacher(){
+		
+	}
+	
 	public Teacher(String name,String username,String password,String tanszek) {
 		super(name,username, password);
 		this.tanszek = tanszek;

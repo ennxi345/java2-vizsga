@@ -23,7 +23,7 @@ public class TeacherDaoImpl implements TeacherDao {
 	@Override
 	public List<Teacher> findAll() {
 		return this.entitymanager
-			.createQuery("SELECT t FROM teacher t" , Teacher.class)
+			.createQuery("SELECT t FROM Teacher t" , Teacher.class)
 			.getResultList();
 				
 	}
