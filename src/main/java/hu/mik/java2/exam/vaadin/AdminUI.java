@@ -71,7 +71,16 @@ public class AdminUI extends UI {
 				Page.getCurrent().setLocation("/newstudent");	
 			}
 		});
-		student.addItem("Diák(ok) módosítása", null);
+		
+		student.addItem("Diák(ok) módosítása", new Command() {
+			
+			@Override
+			public void menuSelected(MenuItem selectedItem) {
+				Page.getCurrent().setLocation("/studentmodify");	
+			}
+		});
+		
+		
 		
 		course.addItem("Kurzus lista", null);
 		course.addItem("Kurzus felvétele", new Command() {

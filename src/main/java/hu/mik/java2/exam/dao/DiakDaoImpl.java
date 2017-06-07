@@ -1,6 +1,7 @@
 package hu.mik.java2.exam.dao;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -41,13 +42,11 @@ public class DiakDaoImpl implements DiakDao{
 	
 
 	@Override
-	public void delete(Student diak) {
-		if(!this.entitymanager.contains(diak)) {
-			this.entitymanager.merge(diak);
-		}
-		else{
-		this.entitymanager.remove(diak);	
-		}
+	public void delete(Set<Student> studentList) {
+		for (Student student : studentList) {
+			this.entitymanager.createQuery(
+				      "DELETE FROM Student s WHERE s.id = :id").setParameter("id", student.getId()).executeUpdate();
+		}	
 	}
 	
 	@Override
@@ -59,6 +58,12 @@ public class DiakDaoImpl implements DiakDao{
 				// igen szerintem elég csak ott
 				.setParameter("username", username).setParameter("password", password).getSingleResult();
 
+	}
+
+	@Override
+	public void Update(Student student) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

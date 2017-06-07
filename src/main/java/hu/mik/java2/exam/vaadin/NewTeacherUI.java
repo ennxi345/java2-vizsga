@@ -47,7 +47,7 @@ public class NewTeacherUI extends UI {
 		birthyearField.setWidth("200px");
 		birthyearField.setIcon(FontAwesome.GIFT);
 
-		Label title = new Label("Felhasználó bevitele:");
+		Label title = new Label("Tanár bevitele:");
 		title.setWidth("100px");
 
 
