@@ -23,7 +23,7 @@ public class DiakDaoImpl implements DiakDao{
 	@Override
 	public List<Student> findAll() {
 		return this.entitymanager
-				.createQuery("SELECT d FROM diak d", Student.class)
+				.createQuery("SELECT d FROM Student d", Student.class)
 				.getResultList();
 	}
 
