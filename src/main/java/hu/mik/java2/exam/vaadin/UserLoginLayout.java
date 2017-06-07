@@ -35,6 +35,7 @@ public class UserLoginLayout extends VerticalLayout {
 
 	@Autowired
 	private AdminDaoImpl adminDaoImpl;
+	@Autowired
 	private DiakDaoImpl diakDaoImpl;
 
 	public UserLoginLayout() {
@@ -89,7 +90,7 @@ public class UserLoginLayout extends VerticalLayout {
 						}
 					
 					if(rdbUsers.getSelectedItem().get() == "Student"){	
-					 UserLoginLayout.this.diakDaoImpl.chkByStudent(studentNameField.getValue(),
+						UserLoginLayout.this.diakDaoImpl.chkByStudent(studentNameField.getValue(),
 								passwordField.getValue());
 						System.out.println("Létezik");
 						
@@ -126,7 +127,7 @@ public class UserLoginLayout extends VerticalLayout {
 	@PostConstruct
 	public void alma(){
 	   
-	   adminDaoImpl.save(new Admin("adam","admin","admin"));
+	   //adminDaoImpl.save(new Admin("adam","admin","admin"));
 	}
 	//a postconstruct a konstruktor után fut le
 }
