@@ -104,7 +104,7 @@ public class StudentListUI extends UI{
 							@Override
 							public void buttonClick(ClickEvent event) {
 								if(student !=null){
-									System.out.println("frissit");
+									System.out.println(student.getName());
 									diakDaoImpl.Update(student);
 								}
 							}});
