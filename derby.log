@@ -1,11 +1,18 @@
 ----------------------------------------------------------------
+<<<<<<< HEAD
 Thu Jun 08 10:14:18 CEST 2017:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015c-86c4-ba7e-00000db56498 
 on database directory E:\vizsga\java2-vizsga\diakDB with class loader sun.misc.Launcher$AppClassLoader@764c12b6 
 Loaded from file:/C:/Users/Adam/.m2/repository/org/apache/derby/derby/10.13.1.1/derby-10.13.1.1.jar
+=======
+Thu Jun 08 10:37:34 CEST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015c-86da-0780-00000f051e58 
+on database directory D:\6.félév\Java2\vizsga\diakDB with class loader sun.misc.Launcher$AppClassLoader@764c12b6 
+Loaded from file:/C:/Users/ennxi345/.m2/repository/org/apache/derby/derby/10.13.1.1/derby-10.13.1.1.jar
+>>>>>>> eb9fba439cc5fa4ae9adc2b54cc83b4ef5904d3d
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_121-b13
-user.dir=E:\vizsga\java2-vizsga
+java.runtime.version=1.8.0_101-b13
+user.dir=D:\6.félév\Java2\vizsga
 os.name=Windows 8.1
 os.arch=amd64
 os.version=6.3
