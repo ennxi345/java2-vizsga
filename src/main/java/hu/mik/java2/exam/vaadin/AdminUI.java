@@ -82,16 +82,30 @@ public class AdminUI extends UI {
 		
 		
 		
-		course.addItem("Kurzus lista", null);
-		course.addItem("Kurzus felvétele", new Command() {
+		course.addItem("Kurzus lista", new Command(){
 
 			@Override
 			public void menuSelected(MenuItem selectedItem) {
-			
-				Page.getCurrent().setLocation("/newCourse");
+				Page.getCurrent().setLocation("/courselist");
+				
 			}
-			});
 			
+			
+		});
+		
+		
+		
+		course.addItem("Kurzus felvétele", new Command(){
+
+			@Override
+			public void menuSelected(MenuItem selectedItem) {
+				Page.getCurrent().setLocation("/newcourse");
+				
+			}});
+			
+			
+			
+	
 			
 		
 		course.addItem("Kurzus módosítása", null);

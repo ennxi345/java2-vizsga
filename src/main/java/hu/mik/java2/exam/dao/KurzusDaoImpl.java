@@ -22,7 +22,7 @@ public class KurzusDaoImpl implements KurzusDao {
 	@Override
 	public List<Course> findAll() {
 		return this.entitymanager
-				.createQuery("SELECT d FROM Course d", Course.class)
+				.createQuery("SELECT c FROM Course c", Course.class)
 				.getResultList();
 		
 	}
